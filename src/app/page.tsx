@@ -3,18 +3,6 @@ import { db } from "~/server/db";
 
 export const dynamic = "force-dynamic";
 
-const mockUrls = [
-    "/img/abigail-lynn-rdmJc2Os4EM.webp",
-    "/img/ambitious-studio-rick-barrett-Ugzhg8-tO3U.webp",
-    "/img/danny-howe-gwQAhisLnRA.webp",
-    "/img/yvette-de-wit-NYrVisodQ2M.webp",
-];
-
-const mockImage = mockUrls.map((url, index) => ({
-    id: index + 1,
-    url,
-}));
-
 export default async function HomePage() {
     const posts = await db.query.posts.findMany({
         with: {
