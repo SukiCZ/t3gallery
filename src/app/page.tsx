@@ -1,5 +1,7 @@
-import Link from "next/link";
+import Image from "next/image";
 import { db } from "~/server/db";
+
+export const dynamic = "force-dynamic";
 
 const mockUrls = [
     "/img/abigail-lynn-rdmJc2Os4EM.webp",
@@ -26,7 +28,7 @@ export default async function HomePage() {
                 ))}
                 {mockImage.map((image) => (
                     <div key={image.id} className="w-48">
-                        <img src={image.url} alt="image" className="w-full" />
+                        <Image src={image.url} alt="image" className="w-full" width={500} height={500} />
                     </div>
                 ))}
             </div>
