@@ -30,14 +30,47 @@ export const posts = createTable(
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
     updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
-      () => new Date()
+      () => new Date(),
     ),
   },
   (example) => ({
     createdByIdIdx: index("created_by_idx").on(example.createdById),
     nameIndex: index("name_idx").on(example.name),
-  })
+  }),
 );
+
+export const postsRelations = relations(posts, ({ one, many }) => ({
+  createdBy: one(users, {
+    fields: [posts.createdById],
+    references: [users.id],
+  }),
+  images: many(images),
+}));
+
+export const images = createTable(
+  "image",
+  {
+    id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
+    postId: integer("post_id")
+      .notNull()
+      .references(() => posts.id),
+    name: varchar("name", { length: 255 }).notNull(),
+    url: varchar("url", { length: 255 }).notNull(),
+    uploadedBy: varchar("uploaded_by", { length: 255 })
+      .notNull()
+      .references(() => users.id),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+  },
+  (example) => ({
+    postIdIdx: index("post_id_idx").on(example.postId),
+  }),
+);
+
+export const imagesRelations = relations(images, ({ one }) => ({
+  post: one(posts, { fields: [images.postId], references: [posts.id] }),
+}));
 
 export const users = createTable("user", {
   id: varchar("id", { length: 255 })
@@ -83,7 +116,7 @@ export const accounts = createTable(
       columns: [account.provider, account.providerAccountId],
     }),
     userIdIdx: index("account_user_id_idx").on(account.userId),
-  })
+  }),
 );
 
 export const accountsRelations = relations(accounts, ({ one }) => ({
@@ -106,7 +139,7 @@ export const sessions = createTable(
   },
   (session) => ({
     userIdIdx: index("session_user_id_idx").on(session.userId),
-  })
+  }),
 );
 
 export const sessionsRelations = relations(sessions, ({ one }) => ({
@@ -125,5 +158,5 @@ export const verificationTokens = createTable(
   },
   (vt) => ({
     compoundKey: primaryKey({ columns: [vt.identifier, vt.token] }),
-  })
+  }),
 );
