@@ -32,7 +32,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 ## TODO VibeWorks
 
 - [x] Make it deploy (Vercel)
-- [ ] Create basic UI
+- [x] Create basic UI
 - [ ] Actually set up the database (Vercel postgres)
 - [ ] Attach database to UI
 - [ ] Add authentication (w/ clerk)
