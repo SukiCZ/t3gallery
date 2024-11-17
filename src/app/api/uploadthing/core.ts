@@ -31,6 +31,7 @@ export const ourFileRouter = {
                 name: file.name,
                 url: file.url,
                 // uploadedBy: metadata.userId, // TODO store Clerk user to DB first
+                uploadedBy: "c54dc3b2-ee5b-40ed-9d26-93007556b755", // TODO store Clerk user to DB first
             })
 
             // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
