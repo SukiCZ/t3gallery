@@ -13,8 +13,12 @@ const config = {
         ignoreDuringBuilds: true,
     },
     images: {
-        domains: ["utfs.io"],
-    }
+        remotePatterns: [
+            {
+                hostname: "utfs.io",
+            },
+        ],
+    },
 };
 
 export default config;

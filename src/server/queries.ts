@@ -6,7 +6,7 @@ export async function getPosts() {
     with: {
       images: true,
     },
-    orderBy: (model, { desc }) => desc(model.createdAt),
+    orderBy: (model, { asc }) => asc(model.createdAt),
   });
   return posts;
 }

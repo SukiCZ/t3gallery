@@ -10,19 +10,21 @@ async function Images() {
     const posts = await getPosts();
 
     return (
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap pl-16 pr-16 gap-4">
             {posts.map((post) => (
                 <div key={post.id} className="w-48">
                     <div>{post.name}</div>
                     {post.images.map((image: { id: number; url: string }) => (
-                        <Image
-                            key={image.id}
-                            src={image.url}
-                            alt="image"
-                            className="w-full"
-                            width={500}
-                            height={500}
-                        />
+                        <div key={image.id} className="flex h-48 w-56 flex-col">
+                            <Image
+                                key={image.id}
+                                src={image.url}
+                                alt="image"
+                                className="w-full"
+                                width={192}
+                                height={128}
+                            />
+                        </div>
                     ))}
                 </div>
             ))}
