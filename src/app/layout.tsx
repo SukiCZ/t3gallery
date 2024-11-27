@@ -23,7 +23,7 @@ export default function RootLayout({
                 baseTheme: dark,
                 layout: {
                     socialButtonsVariant: "iconButton",
-                }
+                },
             }}
         >
             <html lang="en" className={`${GeistSans.variable}`}>
