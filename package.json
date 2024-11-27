@@ -23,6 +23,7 @@
     "@auth/drizzle-adapter": "^1.7.2",
     "@clerk/nextjs": "^6.3.4",
     "@clerk/themes": "^2.1.45",
+    "@sentry/nextjs": "^8.41.0",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@uploadthing/react": "^7.1.1",
     "@vercel/postgres": "^0.10.0",

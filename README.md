@@ -28,7 +28,6 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
 
-
 ## TODO VibeWorks
 
 - [x] Make it deploy (Vercel)
@@ -39,7 +38,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [x] Add authentication (w/ clerk)
 - [x] Add Image upload
 - [ ] Sync Clerk user with database via webhook
-- [ ] Error management (w/ Sentry)
+- [x] Error management (w/ Sentry)
 - [ ] Routing/image page (parallel route)
 - [ ] Delete button (w/ Server action)
 - [ ] Analytics (w/ Posthog)
